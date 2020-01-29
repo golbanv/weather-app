@@ -80,8 +80,8 @@ class App extends React.Component {
 
       const response = await api_call.json();
 
-      if (response.cod === "404") {
-        alert("not found");
+      if (response.name === undefined || response.sys.country === undefined) {
+        alert("City not found");
       } else {
         this.setState({
           city: `${response.name}, ${response.sys.country}`,
